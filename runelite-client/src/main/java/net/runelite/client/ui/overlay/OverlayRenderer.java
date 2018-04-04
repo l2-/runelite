@@ -26,11 +26,8 @@ package net.runelite.client.ui.overlay;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.eventbus.Subscribe;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Rectangle;
+
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -283,9 +280,26 @@ public class OverlayRenderer extends MouseListener implements KeyListener
 		OverlayBounds snapCorners = new OverlayBounds(this.snapCorners);
 
 		// Set font based on configuration
-		graphics.setFont(runeLiteConfig.useSmallFont()
-			? FontManager.getRunescapeSmallFont()
-			: FontManager.getRunescapeFont());
+		switch (runeLiteConfig.font()) {
+			case TAHOMA_BOLD:
+				graphics.setFont(FontManager.getTahomaBold());
+				break;
+			case PLAIN:
+				graphics.setFont(FontManager.getDialogPlain());
+				break;
+			case ARIAL_BOLD:
+				graphics.setFont(FontManager.getArialBold());
+				break;
+			case LUCIDA_SANS_DEMIBOLD_ROMAN:
+				graphics.setFont(FontManager.getLucidaSansDemiboldRoman());
+				break;
+			case RUNESCAPE_SMALL:
+				graphics.setFont(FontManager.getRunescapeSmallFont());
+				break;
+			case RUNESCAPE_DEFAULT:
+				graphics.setFont(FontManager.getRunescapeFont());
+				break;
+		}
 
 		OverlayUtil.setGraphicProperties(graphics);
 

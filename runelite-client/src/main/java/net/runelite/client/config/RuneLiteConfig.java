@@ -26,6 +26,7 @@ package net.runelite.client.config;
 
 import java.awt.Dimension;
 import net.runelite.api.Constants;
+import net.runelite.client.ui.Fonts;
 
 @ConfigGroup(
 	keyName = "runelite",
@@ -118,12 +119,12 @@ public interface RuneLiteConfig extends Config
 	}
 
 	@ConfigItem(
-		keyName = "useSmallFont",
-		name = "Use smaller font for in-game overlays",
-		description = "Toggles between small and regular RuneScape font for in-game overlays"
+		keyName = "Font",
+		name = "Font to use for in-game overlays",
+		description = "Font to use for in-game overlays"
 	)
-	default boolean useSmallFont()
+	default Fonts font()
 	{
-		return false;
+		return Fonts.RUNESCAPE_DEFAULT;
 	}
 }

@@ -299,7 +299,7 @@ public class ClientUI
 			SwingUtil.setTheme(new SubstanceGraphiteLookAndFeel());
 
 			// Use custom UI font
-			SwingUtil.setFont(FontManager.getRunescapeFont());
+			SwingUtil.setFont(FontManager.getTahomaBold());
 
 			// Create main window
 			frame = new JFrame();

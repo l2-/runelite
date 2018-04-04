@@ -25,9 +25,7 @@
 package net.runelite.client.ui;
 
 import javax.swing.text.StyleContext;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
+import java.awt.*;
 import java.io.IOException;
 
 public class FontManager
@@ -35,12 +33,22 @@ public class FontManager
 	private static final Font runescapeFont;
 	private static final Font runescapeSmallFont;
 
+	private static final Font lucidaSansDemiboldRoman;
+	private static final Font dialogPlain;
+	private static final Font arialBold;
+	private static final Font tahomaBold;
+
 	static
 	{
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 
 		try
 		{
+			lucidaSansDemiboldRoman = StyleContext.getDefaultStyleContext().getFont("Lucida Sans Demibold Roman", Font.PLAIN, 11);
+			dialogPlain = StyleContext.getDefaultStyleContext().getFont("Dialog.plain", Font.BOLD, 11);
+			arialBold = StyleContext.getDefaultStyleContext().getFont("Arial Bold", Font.PLAIN, 11);
+			tahomaBold = StyleContext.getDefaultStyleContext().getFont("Tahoma Bold", Font.PLAIN, 11);
+
 			Font font = Font.createFont(Font.TRUETYPE_FONT,
 				FontManager.class.getResourceAsStream("runescape.ttf"))
 				.deriveFont(Font.PLAIN, 16);
@@ -77,5 +85,25 @@ public class FontManager
 	public static Font getRunescapeSmallFont()
 	{
 		return runescapeSmallFont;
+	}
+
+	public static Font getLucidaSansDemiboldRoman()
+	{
+		return lucidaSansDemiboldRoman;
+	}
+
+	public static Font getDialogPlain()
+	{
+		return dialogPlain;
+	}
+
+	public static Font getArialBold()
+	{
+		return arialBold;
+	}
+
+	public static Font getTahomaBold()
+	{
+		return tahomaBold;
 	}
 }
