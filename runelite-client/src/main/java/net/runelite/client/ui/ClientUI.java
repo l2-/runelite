@@ -33,6 +33,7 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.LayoutManager;
 import java.awt.Toolkit;
@@ -297,9 +298,6 @@ public class ClientUI
 
 			// Use substance look and feel
 			SwingUtil.setTheme(new SubstanceGraphiteLookAndFeel());
-
-			// Use custom UI font
-			SwingUtil.setFont(FontManager.getTahomaBold());
 
 			// Create main window
 			frame = new JFrame();

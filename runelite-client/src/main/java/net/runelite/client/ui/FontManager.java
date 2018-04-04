@@ -38,16 +38,19 @@ public class FontManager
 	private static final Font arialBold;
 	private static final Font tahomaBold;
 
+	private static final Font trebuchetMsBold;
+
 	static
 	{
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 
 		try
 		{
-			lucidaSansDemiboldRoman = StyleContext.getDefaultStyleContext().getFont("Lucida Sans Demibold Roman", Font.PLAIN, 11);
-			dialogPlain = StyleContext.getDefaultStyleContext().getFont("Dialog.plain", Font.BOLD, 11);
-			arialBold = StyleContext.getDefaultStyleContext().getFont("Arial Bold", Font.PLAIN, 11);
-			tahomaBold = StyleContext.getDefaultStyleContext().getFont("Tahoma Bold", Font.PLAIN, 11);
+			trebuchetMsBold = new Font("Trebuchet MS Bold", Font.PLAIN, 12);
+			lucidaSansDemiboldRoman = new Font("Lucida Sans Demibold Roman", Font.PLAIN, 12);
+			dialogPlain = new Font("Dialog", Font.PLAIN, 12);
+			arialBold = new Font("Arial Bold", Font.PLAIN, 12);
+			tahomaBold = new Font("Tahoma Bold", Font.PLAIN, 12);
 
 			Font font = Font.createFont(Font.TRUETYPE_FONT,
 				FontManager.class.getResourceAsStream("runescape.ttf"))
@@ -105,5 +108,10 @@ public class FontManager
 	public static Font getTahomaBold()
 	{
 		return tahomaBold;
+	}
+
+	public static Font getTrebuchetMsBold()
+	{
+		return trebuchetMsBold;
 	}
 }

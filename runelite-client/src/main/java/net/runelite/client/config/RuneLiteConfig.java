@@ -127,4 +127,14 @@ public interface RuneLiteConfig extends Config
 	{
 		return Fonts.RUNESCAPE_DEFAULT;
 	}
+
+	@ConfigItem(
+		keyName = "FontHints",
+		name = "Use desktop font hints",
+		description = "Use the font render settings configured by OS"
+	)
+	default boolean useFontHints()
+	{
+		return true;
+	}
 }

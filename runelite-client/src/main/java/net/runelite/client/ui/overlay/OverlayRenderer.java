@@ -279,6 +279,13 @@ public class OverlayRenderer extends MouseListener implements KeyListener
 		// Create copy of snap corners because overlays will modify them
 		OverlayBounds snapCorners = new OverlayBounds(this.snapCorners);
 
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		Map desktopHints = (Map)(tk.getDesktopProperty("awt.font.desktophints"));
+		if (desktopHints != null && runeLiteConfig.useFontHints())
+		{
+			graphics.addRenderingHints(desktopHints);
+		}
+
 		// Set font based on configuration
 		switch (runeLiteConfig.font()) {
 			case TAHOMA_BOLD:
@@ -298,6 +305,9 @@ public class OverlayRenderer extends MouseListener implements KeyListener
 				break;
 			case RUNESCAPE_DEFAULT:
 				graphics.setFont(FontManager.getRunescapeFont());
+				break;
+			case TRECHBUCHET_MS_BOLD:
+				graphics.setFont(FontManager.getTrebuchetMsBold());
 				break;
 		}
 
