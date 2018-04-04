@@ -198,7 +198,8 @@ class OpponentInfoOverlay extends Overlay
 
 			final TextComponent textComponent1 = new TextComponent();
 			textComponent1.setText(str);
-			textComponent1.setPosition(new Point((WIDTH - fm.stringWidth(str)) / 2, y));
+			Point p = new Point((WIDTH - fm.stringWidth(str)) / 2, (int)(y - BAR_HEIGHT / 2f) + (int)(fm.getHeight() / 2f) - (fm.getDescent() > 2 ? fm.getDescent() : 0));
+			textComponent1.setPosition(p);
 			textComponent1.render(graphics);
 
 			y += 3;
