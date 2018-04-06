@@ -40,4 +40,7 @@ public interface RSNode extends Node
 	@Import("previous")
 	@Override
 	RSNode getPrevious();
+
+	@Import("unlink")
+	void unlink();
 }

@@ -111,6 +111,13 @@ public class ChatMessageManager
 		}
 	}
 
+	public void remove(MessageNode messageNode)
+	{
+		final Client client = clientProvider.get();
+		final ChatLineBuffer chatLineBuffer = client.getChatLineMap().get(messageNode.getType().getType());
+		chatLineBuffer.removeMessage(messageNode);
+	}
+
 	private void add(QueuedMessage message)
 	{
 		final Client client = clientProvider.get();

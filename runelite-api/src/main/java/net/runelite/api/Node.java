@@ -31,4 +31,6 @@ public interface Node
 	Node getPrevious();
 
 	long getHash();
+
+	void unlink();
 }

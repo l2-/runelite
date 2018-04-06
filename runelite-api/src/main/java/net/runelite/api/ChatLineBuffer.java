@@ -37,4 +37,6 @@ public interface ChatLineBuffer
 	 * @return the length of the MessageNode array getLines()
 	 */
 	int getLength();
+
+	void removeMessage(MessageNode messageNode);
 }

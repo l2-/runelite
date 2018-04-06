@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017. l2-
+ * Copyright (c) 2018. l2-
  *
  * All rights reserved.
  *
@@ -24,22 +24,19 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package net.runelite.rs.api;
+package net.runelite.client.plugins.Spamfilter;
 
-import net.runelite.api.ChatLineBuffer;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import net.runelite.api.MessageNode;
-import net.runelite.mapping.Import;
 
-public interface RSChatLineBuffer extends ChatLineBuffer
+@AllArgsConstructor
+public class SpamfilterMessage
 {
-	@Import("lines")
-	@Override
-	MessageNode[] getLines();
+	@Getter
+	private final MessageNode messageNode;
 
-	@Import("lines")
-	void setLines(MessageNode[] lines);
-
-	@Import("length")
-	@Override
-	int getLength();
+	@Getter @Setter
+	private long nanoTimeSinceDetection;
 }
