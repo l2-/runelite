@@ -27,6 +27,7 @@ package net.runelite.client.config;
 import java.awt.Dimension;
 import net.runelite.api.Constants;
 import net.runelite.client.Notifier;
+import net.runelite.client.ui.Fonts;
 
 @ConfigGroup(
 	keyName = "runelite",
@@ -114,17 +115,6 @@ public interface RuneLiteConfig extends Config
 	}
 
 	@ConfigItem(
-		keyName = "fontType",
-		name = "Dynamic Overlay Font",
-		description = "Configures what font type is used for in-game overlays such as player name, ground items, etc.",
-		position = 8
-	)
-	default FontType fontType()
-	{
-		return FontType.SMALL;
-	}
-
-	@ConfigItem(
 		keyName = "infoBoxVertical",
 		name = "Display infoboxes vertically",
 		description = "Toggles the infoboxes to display vertically",
@@ -166,5 +156,27 @@ public interface RuneLiteConfig extends Config
 	default boolean rememberScreenBounds()
 	{
 		return true;
+	}
+
+	@ConfigItem(
+		keyName = "useFontHints",
+		name = "AA fonts",
+		description = "Use OS settings for Anti-aliasing fonts",
+		position = 0
+	)
+	default boolean useFontHints()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+		keyName = "fontStyle",
+		name = "Font",
+		description = "",
+		position = 8
+	)
+	default Fonts getFont()
+	{
+		return Fonts.RUNESCAPE_DEFAULT;
 	}
 }

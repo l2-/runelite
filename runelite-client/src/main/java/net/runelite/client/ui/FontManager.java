@@ -36,12 +36,29 @@ public class FontManager
 	private static final Font runescapeSmallFont;
 	private static final Font runescapeBoldFont;
 
+	private static final Font lucidaSansDemiboldRoman;
+	private static final Font dialogPlain;
+	private static final Font arialBold;
+	private static final Font tahomaBold;
+
+	private static final Font trebuchetMsBold;
+	private static final Font latoBold;
+
 	static
 	{
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 
 		try
 		{
+			trebuchetMsBold = new Font("Trebuchet MS Bold", Font.PLAIN, 12);
+			lucidaSansDemiboldRoman = new Font("Lucida Sans Demibold Roman", Font.PLAIN, 12);
+			dialogPlain = new Font("Dialog", Font.PLAIN, 12);
+			arialBold = new Font("Arial Bold", Font.PLAIN, 12);
+			tahomaBold = new Font("Tahoma Bold", Font.PLAIN, 12);
+
+			latoBold = Font.createFont(Font.TRUETYPE_FONT, FontManager.class.getResourceAsStream("Lato-Bold.ttf")).deriveFont(Font.PLAIN, 11);
+			ge.registerFont(latoBold);
+
 			Font font = Font.createFont(Font.TRUETYPE_FONT,
 				FontManager.class.getResourceAsStream("runescape.ttf"))
 				.deriveFont(Font.PLAIN, 16);
@@ -92,5 +109,35 @@ public class FontManager
 	public static Font getRunescapeBoldFont()
 	{
 		return runescapeBoldFont;
+	}
+
+	public static Font getLucidaSansDemiboldRoman()
+	{
+		return lucidaSansDemiboldRoman;
+	}
+
+	public static Font getDialogPlain()
+	{
+		return dialogPlain;
+	}
+
+	public static Font getArialBold()
+	{
+		return arialBold;
+	}
+
+	public static Font getTahomaBold()
+	{
+		return tahomaBold;
+	}
+
+	public static Font getTrebuchetMsBold()
+	{
+		return trebuchetMsBold;
+	}
+
+	public static Font getLatoBold()
+	{
+		return latoBold;
 	}
 }

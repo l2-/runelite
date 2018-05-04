@@ -325,9 +325,6 @@ public class ClientUI
 			// Use substance look and feel
 			SwingUtil.setTheme(new SubstanceGraphiteLookAndFeel());
 
-			// Use custom UI font
-			SwingUtil.setFont(FontManager.getRunescapeFont());
-
 			// Create main window
 			frame = new ContainableFrame();
 

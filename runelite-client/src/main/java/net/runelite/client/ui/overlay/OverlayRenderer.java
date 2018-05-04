@@ -31,6 +31,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.Collections;
@@ -61,7 +62,6 @@ import net.runelite.client.input.KeyManager;
 import net.runelite.client.input.MouseListener;
 import net.runelite.client.input.MouseManager;
 import net.runelite.client.plugins.PluginManager;
-import net.runelite.client.ui.FontManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxOverlay;
 import net.runelite.client.ui.overlay.tooltip.TooltipOverlay;
 import net.runelite.client.ui.overlay.worldmap.WorldMapOverlay;
@@ -277,6 +277,16 @@ public class OverlayRenderer extends MouseListener implements KeyListener
 			|| client.getViewportWidget() == null)
 		{
 			return;
+		}
+
+		if (runeLiteConfig.useFontHints())
+		{
+			Toolkit tk = Toolkit.getDefaultToolkit();
+			Map desktopHints = (Map)(tk.getDesktopProperty("awt.font.desktophints"));
+			if (desktopHints != null)
+			{
+				graphics.addRenderingHints(desktopHints);
+			}
 		}
 
 		if (shouldInvalidateBounds())
@@ -511,18 +521,7 @@ public class OverlayRenderer extends MouseListener implements KeyListener
 		final OverlayPosition position = overlay.getPosition();
 
 		// Set font based on configuration
-		if (position == OverlayPosition.DYNAMIC)
-		{
-			subGraphics.setFont(runeLiteConfig.fontType().getFont());
-		}
-		else if (position == OverlayPosition.TOOLTIP)
-		{
-			subGraphics.setFont(FontManager.getRunescapeSmallFont());
-		}
-		else
-		{
-			subGraphics.setFont(FontManager.getRunescapeFont());
-		}
+		subGraphics.setFont(runeLiteConfig.getFont().getFont());
 
 
 		subGraphics.translate(point.x, point.y);
