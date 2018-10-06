@@ -71,8 +71,6 @@ class ItemChargeOverlay extends Overlay
 			return null;
 		}
 
-		graphics.setFont(FontManager.getRunescapeSmallFont());
-
 		for (WidgetItem item : getChargeWidgetItems())
 		{
 			int charges;
@@ -110,7 +108,8 @@ class ItemChargeOverlay extends Overlay
 
 			final Rectangle bounds = item.getCanvasBounds();
 			final TextComponent textComponent = new TextComponent();
-			textComponent.setPosition(new Point(bounds.x, bounds.y + 16));
+			//bounds.y + graphics.getFontMetrics().getMaxAscent() - graphics.getFontMetrics().getMaxDescent() this will draw the character exactly on the border
+			textComponent.setPosition(new Point(bounds.x, bounds.y + 1 + graphics.getFontMetrics().getMaxAscent() - graphics.getFontMetrics().getMaxDescent()));
 			textComponent.setText(charges < 0 ? "?" : String.valueOf(charges));
 			textComponent.setColor(getColor(charges));
 			textComponent.render(graphics);
