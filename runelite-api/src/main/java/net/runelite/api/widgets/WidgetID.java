@@ -121,6 +121,8 @@ public class WidgetID
 	public static final int PVP_GROUP_ID = 90;
 	public static final int ZEAH_MESS_HALL_GROUP_ID = 235;
 	public static final int LOOTING_BAG_GROUP_ID = 81;
+	public static final int PERFORMERS_FOR_THE_THEATRE_GROUPS_GROUP_ID = 364;
+	public static final int PERFORMERS_FOR_THE_THEATRE_PLAYERS_GROUP_ID = 50;
 
 	static class WorldMap
 	{
