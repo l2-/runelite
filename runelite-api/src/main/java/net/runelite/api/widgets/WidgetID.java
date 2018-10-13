@@ -119,6 +119,8 @@ public class WidgetID
 	public static final int MINIGAME_TAB_ID = 76;
 	public static final int SPELLBOOK_GROUP_ID = 218;
 	public static final int PVP_GROUP_ID = 90;
+	public static final int PERFORMERS_FOR_THE_THEATRE_GROUPS_GROUP_ID = 364;
+	public static final int PERFORMERS_FOR_THE_THEATRE_PLAYERS_GROUP_ID = 50;
 
 	static class WorldMap
 	{
