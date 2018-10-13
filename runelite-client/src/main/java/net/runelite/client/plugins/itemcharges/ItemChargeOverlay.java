@@ -42,6 +42,7 @@ import net.runelite.api.widgets.WidgetItem;
 import static net.runelite.client.plugins.itemcharges.ItemChargeType.*;
 import net.runelite.client.ui.FontManager;
 import net.runelite.client.ui.overlay.Overlay;
+import net.runelite.client.ui.overlay.OverlayGroup;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.components.TextComponent;
@@ -56,6 +57,7 @@ class ItemChargeOverlay extends Overlay
 	@Inject
 	ItemChargeOverlay(QueryRunner queryRunner, ItemChargePlugin itemChargePlugin, ItemChargeConfig config)
 	{
+		setGroup(OverlayGroup.GROUP3);
 		setPosition(OverlayPosition.DYNAMIC);
 		setLayer(OverlayLayer.ABOVE_WIDGETS);
 		this.queryRunner = queryRunner;

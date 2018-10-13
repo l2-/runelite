@@ -34,6 +34,7 @@ import net.runelite.api.Client;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.client.ui.overlay.Overlay;
+import net.runelite.client.ui.overlay.OverlayGroup;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.components.ProgressPieComponent;
@@ -47,6 +48,7 @@ class BurnerOverlay extends Overlay
 	@Inject
 	private BurnerOverlay(Client client, PohConfig config, PohPlugin plugin)
 	{
+		setGroup(OverlayGroup.GROUP1);
 		setPosition(OverlayPosition.DYNAMIC);
 		setLayer(OverlayLayer.ABOVE_SCENE);
 		this.client = client;

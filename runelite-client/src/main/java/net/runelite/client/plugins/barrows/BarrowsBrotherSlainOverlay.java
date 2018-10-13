@@ -33,6 +33,7 @@ import net.runelite.api.Varbits;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.ui.overlay.Overlay;
+import net.runelite.client.ui.overlay.OverlayGroup;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
 import net.runelite.client.ui.overlay.components.LineComponent;
@@ -46,6 +47,7 @@ public class BarrowsBrotherSlainOverlay extends Overlay
 	@Inject
 	private BarrowsBrotherSlainOverlay(Client client)
 	{
+		setGroup(OverlayGroup.GROUP2);
 		setPosition(OverlayPosition.TOP_LEFT);
 		setPriority(OverlayPriority.LOW);
 		this.client = client;
