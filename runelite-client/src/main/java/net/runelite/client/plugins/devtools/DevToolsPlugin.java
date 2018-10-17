@@ -316,11 +316,6 @@ public class DevToolsPlugin extends Plugin
 		}
 	}
 
-	Font getFont()
-	{
-		return font;
-	}
-
 	void togglePlayers()
 	{
 		togglePlayers = !togglePlayers;
