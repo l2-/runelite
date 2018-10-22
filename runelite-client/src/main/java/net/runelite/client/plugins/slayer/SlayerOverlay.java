@@ -113,7 +113,7 @@ class SlayerOverlay extends WidgetItemOverlay
 		int slaughterCount = plugin.getSlaughterChargeCount();
 		int expeditiousCount = plugin.getExpeditiousChargeCount();
 
-		graphics.setFont(FontManager.getRunescapeSmallFont());
+		graphics.setFont(FontManager.getSmallFont(graphics.getFont()));
 
 		final Rectangle bounds = itemWidget.getCanvasBounds();
 		final TextComponent textComponent = new TextComponent();
