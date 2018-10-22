@@ -25,8 +25,10 @@
 package net.runelite.client.config;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import net.runelite.api.Constants;
 import net.runelite.client.ui.ContainableFrame;
+import net.runelite.client.ui.FontManager;
 
 @ConfigGroup("runelite")
 public interface RuneLiteConfig extends Config
@@ -195,6 +197,17 @@ public interface RuneLiteConfig extends Config
 	default boolean sendNotificationsWhenFocused()
 	{
 		return false;
+	}
+
+	@ConfigItem(
+		keyName = "clientFont",
+		name = "Font",
+		description = "Configure what font is used for the client and runelite added overlays",
+		position = 29
+	)
+	default Font clientFont()
+	{
+		return FontManager.getRunescapeFont();
 	}
 
 	@ConfigItem(
