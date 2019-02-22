@@ -192,7 +192,7 @@ public class NpcSceneOverlay extends Overlay
 			graphics.setColor(color);
 			graphics.setStroke(new BasicStroke(2));
 			graphics.draw(polygon);
-			graphics.setColor(new Color(color.getRed(), color.getGreen(), color.getBlue(), 20));
+			graphics.setColor(new Color(0, 0, 0, 35));
 			graphics.fill(polygon);
 		}
 	}
