@@ -253,11 +253,11 @@ public class InfoPanel extends PluginPanel
 
 		JLabel topLine = new JLabel(topText);
 		topLine.setForeground(Color.WHITE);
-		topLine.setFont(FontManager.getSmallFont(getFont()));
+		topLine.setFont(FontManager.getSmallFont(topLine.getFont()));
 
 		JLabel bottomLine = new JLabel(bottomText);
 		bottomLine.setForeground(Color.WHITE);
-		bottomLine.setFont(FontManager.getSmallFont(getFont()));
+		bottomLine.setFont(FontManager.getSmallFont(topLine.getFont()));
 
 		textContainer.add(topLine);
 		textContainer.add(bottomLine);
