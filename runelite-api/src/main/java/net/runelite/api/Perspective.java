@@ -308,13 +308,35 @@ public class Perspective
 	 */
 	public static Polygon getCanvasTileAreaPoly(@Nonnull Client client, @Nonnull LocalPoint localLocation, int size)
 	{
+		return getCanvasTileAreaPoly(client, localLocation, size, true);
+	}
+
+	public static Polygon getCanvasTileAreaPoly(@Nonnull Client client, @Nonnull LocalPoint localLocation, int size, boolean centered)
+	{
 		final int plane = client.getPlane();
 
-		final int swX = localLocation.getX() - (size * LOCAL_TILE_SIZE / 2);
-		final int swY = localLocation.getY() - (size * LOCAL_TILE_SIZE / 2);
+		final int swX;
+		final int swY;
 
-		final int neX = localLocation.getX() + (size * LOCAL_TILE_SIZE / 2);
-		final int neY = localLocation.getY() + (size * LOCAL_TILE_SIZE / 2);
+		final int neX;
+		final int neY;
+
+		if (centered)
+		{
+			swX = localLocation.getX() - size * LOCAL_TILE_SIZE / 2;
+			swY = localLocation.getY() - size * LOCAL_TILE_SIZE / 2;
+
+			neX = localLocation.getX() + size * LOCAL_TILE_SIZE / 2;
+			neY = localLocation.getY() + size * LOCAL_TILE_SIZE / 2;
+		}
+		else
+		{
+			swX = localLocation.getX() - LOCAL_TILE_SIZE / 2;
+			swY = localLocation.getY() - LOCAL_TILE_SIZE / 2;
+
+			neX = localLocation.getX() - LOCAL_TILE_SIZE / 2 + size * LOCAL_TILE_SIZE;
+			neY = localLocation.getY() - LOCAL_TILE_SIZE / 2 + size * LOCAL_TILE_SIZE;
+		}
 
 		final int seX = swX;
 		final int seY = neY;
