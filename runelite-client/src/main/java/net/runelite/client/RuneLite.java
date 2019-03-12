@@ -185,16 +185,6 @@ public class RuneLite
 
 		final boolean developerMode = options.has("developer-mode") && RuneLiteProperties.getLauncherVersion() == null;
 
-		if (developerMode)
-		{
-			boolean assertions = false;
-			assert assertions = true;
-			if (!assertions)
-			{
-				throw new RuntimeException("Developers should enable assertions; Add `-ea` to your JVM arguments`");
-			}
-		}
-
 		PROFILES_DIR.mkdirs();
 
 		if (options.has("debug"))
