@@ -37,6 +37,7 @@ import net.runelite.api.NPC;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
+import net.runelite.client.ui.overlay.OverlayPriority;
 
 public class TargetClickboxOverlay extends Overlay
 {
@@ -49,6 +50,7 @@ public class TargetClickboxOverlay extends Overlay
 		this.config = config;
 		this.plugin = plugin;
 		setPosition(OverlayPosition.DYNAMIC);
+		setPriority(OverlayPriority.HIGHEST);
 		setLayer(OverlayLayer.ABOVE_SCENE);
 	}
 

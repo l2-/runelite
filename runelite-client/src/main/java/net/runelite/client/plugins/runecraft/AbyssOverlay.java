@@ -57,6 +57,7 @@ import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
+import net.runelite.client.ui.overlay.OverlayPriority;
 import net.runelite.client.ui.overlay.OverlayUtil;
 
 class AbyssOverlay extends Overlay
@@ -78,6 +79,7 @@ class AbyssOverlay extends Overlay
 	{
 		setPosition(OverlayPosition.DYNAMIC);
 		setLayer(OverlayLayer.ABOVE_WIDGETS);
+		setPriority(OverlayPriority.HIGHEST);
 		this.client = client;
 		this.plugin = plugin;
 		this.config = config;

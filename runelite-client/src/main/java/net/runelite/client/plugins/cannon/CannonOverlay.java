@@ -53,7 +53,7 @@ class CannonOverlay extends Overlay
 	CannonOverlay(Client client, CannonConfig config, CannonPlugin plugin)
 	{
 		setPosition(OverlayPosition.DYNAMIC);
-		setPriority(OverlayPriority.MED);
+		setPriority(OverlayPriority.LOW);
 		this.client = client;
 		this.config = config;
 		this.plugin = plugin;

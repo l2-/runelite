@@ -40,6 +40,7 @@ import net.runelite.client.game.AgilityShortcut;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
+import net.runelite.client.ui.overlay.OverlayPriority;
 import net.runelite.client.ui.overlay.OverlayUtil;
 
 class AgilityOverlay extends Overlay
@@ -57,6 +58,7 @@ class AgilityOverlay extends Overlay
 		super(plugin);
 		setPosition(OverlayPosition.DYNAMIC);
 		setLayer(OverlayLayer.ABOVE_SCENE);
+		setPriority(OverlayPriority.HIGHEST);
 		this.client = client;
 		this.plugin = plugin;
 		this.config = config;
