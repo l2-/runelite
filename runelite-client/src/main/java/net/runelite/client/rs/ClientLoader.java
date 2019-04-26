@@ -34,10 +34,14 @@ import io.sigpipe.jbsdiff.InvalidHeaderException;
 import io.sigpipe.jbsdiff.Patch;
 import java.applet.Applet;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
@@ -59,6 +63,7 @@ import net.runelite.http.api.RuneLiteAPI;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.apache.commons.compress.compressors.CompressorException;
+import org.apache.commons.compress.utils.IOUtils;
 
 @Slf4j
 @Singleton
@@ -82,6 +87,34 @@ public class ClientLoader
 		{
 			return null;
 		}
+
+		String dataFolder;
+		String OS = (System.getProperty("os.name")).toUpperCase();
+		if (OS.contains("WIN"))
+		{
+			dataFolder = System.getenv("AppData");
+			dataFolder += "/RuneLiteX/patches/";
+		}
+		else
+		{
+			dataFolder = System.getProperty("user.home");
+			dataFolder += "/Library/Application Support/RuneLiteX/patches/";
+		}
+
+		if(Files.exists(Paths.get(dataFolder))){
+		}else{
+			boolean success = (new File(dataFolder)).mkdirs();
+			if (!success) {
+				// Directory creation failed
+				System.out.println("Failed to create directory");
+			}else{
+				System.out.println("Successfully created directory");
+			}
+		}
+
+		String patchFolder = dataFolder;
+		File folder = new File(patchFolder);
+		File[] patches = folder.listFiles();
 
 		try
 		{
@@ -192,6 +225,23 @@ public class ClientLoader
 					patchOs.reset();
 					Patch.patch(file.getValue(), bytes, patchOs);
 					file.setValue(patchOs.toByteArray());
+
+					if(patches != null) {
+						for (File f : patches) {
+							if (file.getKey().equals(f.getName())) {
+								FileInputStream is = new FileInputStream(f);
+								try {
+									bytes = IOUtils.toByteArray(is);
+								} catch (IOException e) {
+									e.printStackTrace();
+									System.out.println("BIG ERROR!");
+								}
+								log.info("Applied custom patch to: {}", file.getKey());
+								file.setValue(bytes);
+								is.close();
+							}
+						}
+					}
 
 					++patchCount;
 				}
