@@ -308,10 +308,20 @@ public class Perspective
 	 */
 	public static Polygon getCanvasTileAreaPoly(@Nonnull Client client, @Nonnull LocalPoint localLocation, int size)
 	{
-		return getCanvasTileAreaPoly(client, localLocation, size, true);
+		return getCanvasTileAreaPoly(client, localLocation, size,0,  true);
+	}
+
+	public static Polygon getCanvasTileAreaPoly(@Nonnull Client client, @Nonnull LocalPoint localLocation, int size, int borderOffset)
+	{
+		return getCanvasTileAreaPoly(client, localLocation, size,borderOffset,  true);
 	}
 
 	public static Polygon getCanvasTileAreaPoly(@Nonnull Client client, @Nonnull LocalPoint localLocation, int size, boolean centered)
+	{
+		return getCanvasTileAreaPoly(client, localLocation, size,0,  centered);
+	}
+
+	public static Polygon getCanvasTileAreaPoly(@Nonnull Client client, @Nonnull LocalPoint localLocation, int size, int borderOffset, boolean centered)
 	{
 		final int plane = client.getPlane();
 
@@ -323,19 +333,19 @@ public class Perspective
 
 		if (centered)
 		{
-			swX = localLocation.getX() - size * LOCAL_TILE_SIZE / 2;
-			swY = localLocation.getY() - size * LOCAL_TILE_SIZE / 2;
+			swX = localLocation.getX() - size * (LOCAL_TILE_SIZE + borderOffset) / 2;
+			swY = localLocation.getY() - size * (LOCAL_TILE_SIZE + borderOffset) / 2;
 
-			neX = localLocation.getX() + size * LOCAL_TILE_SIZE / 2;
-			neY = localLocation.getY() + size * LOCAL_TILE_SIZE / 2;
+			neX = localLocation.getX() + size * (LOCAL_TILE_SIZE + borderOffset) / 2;
+			neY = localLocation.getY() + size * (LOCAL_TILE_SIZE + borderOffset) / 2;
 		}
 		else
 		{
-			swX = localLocation.getX() - LOCAL_TILE_SIZE / 2;
-			swY = localLocation.getY() - LOCAL_TILE_SIZE / 2;
+			swX = localLocation.getX() - (LOCAL_TILE_SIZE + borderOffset) / 2;
+			swY = localLocation.getY() - (LOCAL_TILE_SIZE + borderOffset) / 2;
 
-			neX = localLocation.getX() - LOCAL_TILE_SIZE / 2 + size * LOCAL_TILE_SIZE;
-			neY = localLocation.getY() - LOCAL_TILE_SIZE / 2 + size * LOCAL_TILE_SIZE;
+			neX = localLocation.getX() - (LOCAL_TILE_SIZE + borderOffset) / 2 + size * (LOCAL_TILE_SIZE + borderOffset);
+			neY = localLocation.getY() - (LOCAL_TILE_SIZE + borderOffset) / 2 + size * (LOCAL_TILE_SIZE + borderOffset);
 		}
 
 		final int seX = swX;
