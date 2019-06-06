@@ -350,7 +350,7 @@ public class LootTrackerPlugin extends Plugin
 				container = client.getItemContainer(InventoryID.CHAMBERS_OF_XERIC_CHEST);
 				chestLooted = true;
 				break;
-			case (WidgetID.THEATRE_OF_BLOOD_GROUP_ID):
+			case (WidgetID.THEATRE_OF_BLOOD_REWARD_GROUP_ID):
 				if (chestLooted)
 				{
 					return;

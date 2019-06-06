@@ -111,7 +111,7 @@ public class WidgetID
 	public static final int VARROCK_MUSEUM_QUIZ_GROUP_ID = 533;
 	public static final int KILL_LOGS_GROUP_ID = 549;
 	public static final int DIARY_QUEST_GROUP_ID = 119;
-	public static final int THEATRE_OF_BLOOD_GROUP_ID = 23;
+	public static final int THEATRE_OF_BLOOD_GROUP_ID = 28;
 	public static final int WORLD_SWITCHER_GROUP_ID = 69;
 	public static final int DIALOG_OPTION_GROUP_ID = 219;
 	public static final int DIALOG_PLAYER_GROUP_ID = 217;
@@ -590,6 +590,12 @@ public class WidgetID
 	static class Raids
 	{
 		static final int POINTS_INFOBOX = 6;
+	}
+
+	static class TheatreOfBlood
+	{
+		static final int ORB_BOX = 10;
+		static final int BOSS_HEALTH_BAR = 35;
 	}
 
 	static class ExperienceDrop
