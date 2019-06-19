@@ -42,4 +42,15 @@ public interface AntiDragConfig extends Config
 	{
 		return Constants.GAME_TICK_LENGTH / Constants.CLIENT_TICK_LENGTH; // one game tick
 	}
+
+	@ConfigItem(
+		keyName = "reqfocus",
+		name = "Reset on focus loss",
+		description = "Disable antidrag when losing focus (like alt tabbing)",
+		position = 2
+	)
+	default boolean reqfocus()
+	{
+		return false;
+	}
 }
