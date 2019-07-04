@@ -519,7 +519,7 @@ public class PartyPlugin extends Plugin implements KeyListener
 	{
 		if (keyEvent.getKeyCode() == KeyEvent.VK_SHIFT)
 		{
-			hotkeyDown = true;
+			//hotkeyDown = true;
 		}
 	}
 
